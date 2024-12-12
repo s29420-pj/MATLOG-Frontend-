@@ -2,13 +2,13 @@ import { Routes } from '@angular/router';
 import {RegisterComponent} from './auth/register/register.component';
 import {LoginComponent} from './auth/login/login.component';
 import {AppComponent} from './app.component';
+import {HomeComponent} from './home/home.component';
 
 
-export const  routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: '', redirectTo: '/login', pathMatch: 'full' } , //  przekierowuje na login
-  { path: 'register', component: RegisterComponent },
-  { path: '', redirectTo: '/register', pathMatch: 'full' }, //  przekierowuje na register
-  { path: '', component: AppComponent },
-  { path: '', redirectTo: '/glowna', pathMatch: 'full' } //  przekierowuje na register
+export const routes: Routes = [
+  { path: '', component: HomeComponent }, // Strona główna
+  { path: 'login', component: LoginComponent }, // Strona logowania
+  { path: 'register', component: RegisterComponent }, // Strona rejestracji
+  { path: '**', redirectTo: '' }, // Przekierowanie dla nieznanych ścieżek na stronę główną
 ];
+
