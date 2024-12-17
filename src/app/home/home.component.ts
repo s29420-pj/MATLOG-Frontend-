@@ -6,4 +6,8 @@ import {MenuComponent} from '../menu/menu.component';
   standalone: true,
   imports: [MenuComponent],
   templateUrl: './home.component.html',
-  s
+  styleUrl: './home.component.css'
+})
+export class HomeComponent {
+
+}
