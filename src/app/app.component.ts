@@ -13,8 +13,4 @@ import { MenuComponent } from './menu/menu.component';
   styleUrl: './app.component.css',
 })
 export class AppComponent implements  OnInit{
-  title = 'MATLOG-frontend';
-  ngOnInit(): void {
-    initFlowbite();
-  }
-}
+  titl

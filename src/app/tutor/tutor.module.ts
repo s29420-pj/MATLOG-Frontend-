@@ -8,8 +8,4 @@ import {MenuComponent} from '../menu/menu.component';
   declarations: [],
   imports: [
     CommonModule,
-    TutorRoutingModule,
-    MenuComponent
-  ]
-})
-export class TutorModule { }
+    Tu
