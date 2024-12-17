@@ -7,7 +7,7 @@ import {ReactiveFormsModule} from '@angular/forms';
   imports: [
     ReactiveFormsModule
   ],
-  templateUrl: './login.component.html',
+  templateUrl: "./login.component.html",
   styleUrl: './login.component.css'
 })
 export class LoginComponent {

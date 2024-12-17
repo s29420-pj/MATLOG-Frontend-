@@ -28,9 +28,10 @@ export class RegisterComponent {
 
   buildRegisterForm() {
     return this.formBuilder.group({
-      name: ['', Validators.required],
-      surname: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
+      firstName: ['', Validators.required],
+      role: ['', Validators.required],
+      lastName: ['', Validators.required],
+      emailAddress: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
       userType: ['', Validators.required],
       dateOfBirth: ['']
