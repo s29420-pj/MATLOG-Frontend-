@@ -9,7 +9,9 @@ import { FaqComponent } from './faq/faq.component';
   declarations: [],
   imports: [
     CommonModule,
-    FaqRoutingModule
+    FaqRoutingModule,
+    FaqComponent,
+
   ],
   exports: [
     FaqComponent

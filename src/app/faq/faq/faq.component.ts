@@ -18,6 +18,8 @@ interface FaqItem {
   ],
   styleUrls: ['./faq.component.css']
 })
-export class FaqComponent  {
-
+export class FaqComponent  implements AfterViewInit {
+ngAfterViewInit() {
+  initFlowbite();
+}
 }
