@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, ReactiveFormsModule} from '@angular/forms';
 import {initFlowbite} from 'flowbite';
-import {JsonPipe, NgIf} from '@angular/common';
+import {JsonPipe} from '@angular/common';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +10,7 @@ import {JsonPipe, NgIf} from '@angular/common';
   imports: [
     ReactiveFormsModule,
     JsonPipe,
-    NgIf
+    RouterLink
   ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
@@ -18,8 +19,7 @@ export class RegisterComponent {
   title = 'MATLOG-frontend';
   registerForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
-  }
+  constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
     initFlowbite();
@@ -28,21 +28,12 @@ export class RegisterComponent {
 
   buildRegisterForm() {
     return this.formBuilder.group({
-      firstName: ['', Validators.required],
-      role: ['', Validators.required],
-      lastName: ['', Validators.required],
-      emailAddress: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
-      userType: ['', Validators.required],
-      dateOfBirth: ['']
+      name: '',
+      surname: '',
+      email: '',
+      password: '',
+      dateOfBirth: '',
+      city: ''
     });
-
-  }
-
-  onSubmit(): void {
-    if (this.registerForm.valid) {
-      console.log('Form data:', this.registerForm.value);
-      // tu bedzie wysylanie danych
-    }
   }
 }
