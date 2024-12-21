@@ -9,7 +9,7 @@ import {FaqComponent} from './faq/faq/faq.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent }, // Strona główna
-  { path: 'login', component: LoginComponent }, // Strona logowania
+  { path: 'logowanie', component: LoginComponent }, // Strona logowania
   { path: 'rejestracja', component: RegisterComponent }, // Strona rejestracji
   { path: 'zostan-korepetytorem', component: BecomeTutorComponent }, // Nowa ścieżka
   { path: 'faq',component: FaqComponent},
