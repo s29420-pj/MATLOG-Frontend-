@@ -2,11 +2,11 @@ import { Routes } from '@angular/router';
 import {RegisterComponent} from './auth/register/register.component';
 import {LoginComponent} from './auth/login/login.component';
 import {AppComponent} from './app.component';
-import {HomeComponent} from './home/home.component';
-import {BecomeTutorComponent} from './tutor/become-tutor/become-tutor.component';
-import {FaqComponent} from './faq/faq/faq.component';
-import {ContactComponent} from './contact/contact.component';
-import {OfferComponent} from './offer/offer.component';
+import {HomeComponent} from './home/main/home.component';
+import {BecomeTutorComponent} from './home/tutor/become-tutor/become-tutor.component';
+import {FaqComponent} from './home/faq/faq/faq.component';
+import {ContactComponent} from './home/contact/contact.component';
+import {OfferComponent} from './home/offer/offer.component';
 
 
 export const routes: Routes = [
