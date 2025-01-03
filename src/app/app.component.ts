@@ -8,10 +8,11 @@ import {FaqComponent} from './faq/faq/faq.component';
 import {BrowserModule} from '@angular/platform-browser';
 import {TutorModule} from './tutor/tutor.module';
 import {FaqModule} from './faq/faq.module';
+import {ContactModule} from './contact/contact.module';
 
 
 @Component({
-  imports: [RouterOutlet, MenuComponent, FaqModule, TutorModule],
+  imports: [RouterOutlet, MenuComponent, FaqModule, TutorModule,ContactModule],
   selector: 'app-root',
   standalone: true,
   styleUrl: './app.component.css',

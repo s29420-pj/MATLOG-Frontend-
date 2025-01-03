@@ -5,8 +5,32 @@
   <!-- Główna sekcja -->
   <div class="w-3/4 flex items-center justify-center p-8 relative z-0">
     <div class="bg-white w-full rounded-l-3xl rounded-r-3xl p-8 shadow-lg">
+        <h1 class="text-4xl font-bold text-indigo-600 text-center mb-6">Skontaktuj się z nami</h1>
 
-    </div>
+        <div class="text-center space-y-4">
+          <p><strong>Adres:</strong> ul. Przykładowa 123, 00-000 Warszawa</p>
+          <p><strong>Telefon:</strong> +48 123 456 789</p>
+          <p><strong>E-mail:</strong> kontakt&#64;twojafirma.pl</p>
+        </div>
+
+        <form class="max-w-lg mx-auto space-y-4 mt-8">
+          <div>
+            <label class="block text-gray-700 font-medium mb-2">Imię</label>
+            <input type="text" placeholder="Twoje imię" class="w-full p-3 border border-gray-300 rounded-lg">
+          </div>
+          <div>
+            <label class="block text-gray-700 font-medium mb-2">E-mail</label>
+            <input type="email" placeholder="example@gmail.com" class="w-full p-3 border border-gray-300 rounded-lg">
+          </div>
+          <div>
+            <label class="block text-gray-700 font-medium mb-2">Wiadomość</label>
+            <textarea placeholder="Twoja wiadomość" class="w-full p-3 border border-gray-300 rounded-lg h-32"></textarea>
+          </div>
+          <button class="w-full bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700 transition duration-300">
+            Wyślij wiadomość
+          </button>
+        </form>
+      </div>
   </div>
 </div>
 

@@ -15,6 +15,5 @@ export const routes: Routes = [
   { path: 'zostan-korepetytorem', component: BecomeTutorComponent }, // Nowa ścieżka
   { path: 'kontakt', component: ContactComponent }, // Nowa ścieżka
   { path: 'faq',component: FaqComponent},
-  { path: '**', redirectTo: '' }, // Przekierowanie dla nieznanych ścieżek na stronę główną
 ];
 
