@@ -1,0 +1,16 @@
+<div class="dashboard-content w-3/4 p-8">
+  <div class="p-8">
+    <h2 class="text-2xl font-bold mb-6">Your Courses</h2>
+    <div class="grid grid-cols-2 gap-6">
+      <div *ngFor="let course of courses" class="bg-white rounded-lg shadow-lg overflow-hidden relative">
+        <img [src]="course.image" alt="Course Image" class="w-full h-40 object-cover">
+        <div class="p-4">
+          <h3 class="text-lg font-semibold text-gray-800">{{ course.title }}</h3>
+          <p class="text-sm text-gray-500 mt-2">{{ course.author }}</p>
+          <span class="absolute top-4 right-4 bg-orange-500 text-white text-xs px-2 py-1 rounded-lg">{{ course.duration }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

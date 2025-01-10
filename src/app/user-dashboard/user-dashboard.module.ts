@@ -4,15 +4,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { SettingsComponent } from './settings/settings.component';
 import {UserDashboardComponent} from './user-dashboard.component';
 import {LessonsComponent} from './lessons/lessons.component';
+import {DashboardHomeComponent} from './dashboard-home/dashboard-home.component';
 
 const routes: Routes = [
   {
-    path: 'dashboard',
-    loadComponent: () => import('./user-dashboard.component').then(m => m.UserDashboardComponent),
+    path: '',
+    component: UserDashboardComponent,
     children: [
-      { path: 'lekcje', component: LessonsComponent }, // Przekierowanie domyślne
-      { path: 'ustawienia', component: SettingsComponent }, // Ścieżka /dashboard/ustawienia
-      { path: 'lekcje', component: LessonsComponent }, // Ścieżka /dashboard/lekcje
+      { path: '', component: DashboardHomeComponent }, // Domyślny widok dla /dashboard
+      { path: 'ustawienia', component: SettingsComponent }, // Dodatkowy widok dla /dashboard/settings
     ],
   },
 ];

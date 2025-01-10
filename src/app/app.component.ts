@@ -20,7 +20,15 @@ export class AppComponent implements OnInit {
   }
 
   isDashboardRoute(): boolean {
+    console.log('Current URL:', this.router.url);
     return this.router.url.startsWith('/dashboard');
   }
+
+  isAuthRoute(): boolean {
+    console.log('Current URL:', this.router.url);
+    return this.router.url.startsWith('/auth');
+  }
+
+
 
 }

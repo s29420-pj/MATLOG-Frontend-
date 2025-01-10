@@ -1,27 +1,41 @@
-<ng-container *ngIf="!isDashboardRoute(); else dashboardLayout">
-  <!-- Layout strony głównej -->
-  <div class="h-screen flex bg-indigo-800">
-    <div class="w-1/4 bg-indigo-800 text-white flex flex-col p-4 shadow-xl">
-      <app-main-menu></app-main-menu> <!-- Menu nawigacyjne -->
-    </div>
-    <div class="w-3/4 flex items-center justify-center p-8 relative z-0">
-      <div class="bg-white w-full rounded-l-3xl rounded-r-3xl p-8 shadow-lg">
-  <router-outlet></router-outlet>
+<ng-container *ngIf="!isAuthRoute(); else authLayout">
+  <ng-container *ngIf="!isDashboardRoute(); else dashboardLayout">
+    <!-- Layout strony głównej -->
+    <div class="h-screen flex bg-indigo-800">
+      <div class="w-1/4 bg-indigo-800 text-white flex flex-col p-4 shadow-xl">
+        <app-main-menu></app-main-menu> <!-- Menu nawigacyjne -->
+      </div>
+      <div class="w-3/4 flex items-center justify-center p-8 relative z-0">
+        <div class="bg-white w-full rounded-l-3xl rounded-r-3xl p-8 shadow-lg">
+          <router-outlet></router-outlet>
+        </div>
       </div>
     </div>
-  </div>
+  </ng-container>
+
+  <ng-template #dashboardLayout>
+    <!-- Layout dashboardu -->
+    <div class="h-screen flex bg-indigo-800">
+      <!-- Menu nawigacyjne -->
+      <div class="bg-indigo-800 text-white flex flex-col p-4 shadow-xl sm:w-1/3 md:w-1/4 w-1/4">
+        <app-dashboard-menu></app-dashboard-menu>
+      </div>
+      <!-- Zawartość dashboardu -->
+      <div class="w-3/4 flex items-center justify-center p-4 relative z-0 h-full overflow-y-auto sm:w-2/3 md:w-3/4">
+        <div class="bg-white w-full rounded-l-3xl rounded-r-3xl p-8 shadow-lg">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
 </ng-container>
 
-<ng-template #dashboardLayout>
-  <!-- Layout dashboardu -->
-  <div class="h-screen flex bg-indigo-800">
-    <div class="w-1/4 bg-indigo-800 text-white flex flex-col p-4 shadow-xl">
-  <app-dashboard-menu></app-dashboard-menu>
-    </div>
-    <div class="w-3/4 flex items-center justify-center p-8 relative z-0">
-      <div class="bg-white w-full rounded-l-3xl rounded-r-3xl p-8 shadow-lg">
-  <router-outlet></router-outlet>
-      </div>
-    </div>
+<ng-template #authLayout>
+  <!-- Layout dla auth (bez menu) -->
+  <div class="h-screen bg-indigo-800 flex justify-center items-center">
+    <div class="bg-white  rounded-l-3xl rounded-r-3xl p-8 shadow-lg">
+    <router-outlet></router-outlet> <!-- Zawartość logowania/rejestracji -->
+  </div>
   </div>
 </ng-template>

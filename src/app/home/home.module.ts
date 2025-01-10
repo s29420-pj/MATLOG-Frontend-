@@ -7,6 +7,9 @@ import {ContactComponent} from './contact/contact.component';
 import {BecomeTutorComponent} from './tutor/become-tutor/become-tutor.component';
 import {OfferComponent} from './offer/offer.component';
 import {FaqComponent} from './faq/faq/faq.component';
+import {RegisterComponent} from '../auth/register/register.component';
+import {TutorSearchComponent} from './tutor-search/tutor-search.component';
+import {FormsModule} from '@angular/forms';
 
 
 const routes: Routes = [
@@ -15,16 +18,20 @@ const routes: Routes = [
   { path: 'zostan-korepetytorem', component: BecomeTutorComponent},
   { path: 'oferta', component: OfferComponent},
   { path: 'faq', component: FaqComponent},
+  { path: 'rejestracja', component: RegisterComponent},
+  { path: 'wyszukaj-korepetytora', component: TutorSearchComponent },
+
 ];
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    MainMenuComponent
+    MainMenuComponent,
+    FormsModule,
   ]
 })
 export class HomeModule { }
