@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TutorRoutingModule } from './tutor-routing.module';
-import {MenuComponent} from '../menu/menu.component';
+import {MainMenuComponent} from '../main-menu/main-menu.component';
 import {BecomeTutorComponent} from './become-tutor/become-tutor.component';
 
 
@@ -11,7 +11,7 @@ import {BecomeTutorComponent} from './become-tutor/become-tutor.component';
   imports: [
     CommonModule,
     TutorRoutingModule,
-    MenuComponent,
+    MainMenuComponent,
     BecomeTutorComponent
   ],
   exports:[BecomeTutorComponent]

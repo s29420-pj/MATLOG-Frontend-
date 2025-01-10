@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import {MenuComponent} from "../menu/menu.component";
+import {MainMenuComponent} from "../main-menu/main-menu.component";
 import {CommonModule} from '@angular/common';
 
 @Component({
   selector: 'app-offer',
   standalone: true,
     imports: [
-        CommonModule, MenuComponent
+        CommonModule, MainMenuComponent
     ],
   templateUrl: './offer.component.html',
   styleUrl: './offer.component.css'

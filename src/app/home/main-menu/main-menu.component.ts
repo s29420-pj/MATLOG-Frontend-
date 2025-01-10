@@ -2,14 +2,14 @@ import { Component } from '@angular/core';
 import {RouterLink} from '@angular/router';
 
 @Component({
-  selector: 'app-menu',
+  selector: 'app-main-menu',
   standalone: true,
   imports: [
     RouterLink
   ],
-  templateUrl: './menu.component.html',
-  styleUrl: './menu.component.css'
+  templateUrl: './main-menu.component.html',
+  styleUrl: './main-menu.component.css'
 })
-export class MenuComponent {
+export class MainMenuComponent {
 
 }

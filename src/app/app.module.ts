@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
+import {routes} from './app.routes';
 
 @NgModule({
   declarations: [
@@ -9,8 +10,7 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot([{ path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) }]),
-    AppComponent,
+    RouterModule.forRoot(routes),    AppComponent,
   ],
   providers: [],
 })

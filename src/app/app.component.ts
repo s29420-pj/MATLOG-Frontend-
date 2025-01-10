@@ -1,26 +1,26 @@
-import {Component, OnInit} from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router, RouterOutlet } from '@angular/router';
 import { initFlowbite } from 'flowbite';
-import {RegisterComponent} from './auth/register/register.component';
-import {FormBuilder, FormGroup} from '@angular/forms';
-import { MenuComponent } from './home/menu/menu.component';
-import {FaqComponent} from './home/faq/faq/faq.component';
-import {BrowserModule} from '@angular/platform-browser';
-import {TutorModule} from './home/tutor/tutor.module';
-import {FaqModule} from './home/faq/faq.module';
-import {ContactModule} from './home/contact/contact.module';
-
+import { MainMenuComponent } from './home/main-menu/main-menu.component';
+import {CommonModule} from '@angular/common';
+import {DashboardMenuComponent} from './user-dashboard/dashboard-menu/dashboard-menu.component';
 
 @Component({
-  imports: [RouterOutlet, MenuComponent, FaqModule, TutorModule,ContactModule],
   selector: 'app-root',
   standalone: true,
-  styleUrl: './app.component.css',
+  imports: [RouterOutlet, MainMenuComponent, CommonModule, DashboardMenuComponent],
   templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements  OnInit{
-  title = 'MATLOG-frontend';
+export class AppComponent implements OnInit {
+  constructor(private router: Router) {}
+
   ngOnInit(): void {
     initFlowbite();
   }
+
+  isDashboardRoute(): boolean {
+    return this.router.url.startsWith('/dashboard');
+  }
+
 }

@@ -1,7 +1,7 @@
 // src/app/faq/faq.component.ts
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { initFlowbite } from 'flowbite';
-import {MenuComponent} from '../../menu/menu.component';
+import {MainMenuComponent} from '../../main-menu/main-menu.component';
 
 interface FaqItem {
   question: string;
@@ -14,7 +14,7 @@ interface FaqItem {
   templateUrl: './faq.component.html',
   standalone: true,
   imports: [
-    MenuComponent
+    MainMenuComponent
   ],
   styleUrls: ['./faq.component.css']
 })

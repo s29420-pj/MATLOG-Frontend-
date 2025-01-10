@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {MenuComponent} from '../menu/menu.component';
+import {MainMenuComponent} from '../main-menu/main-menu.component';
 
 
 
@@ -8,7 +8,7 @@ import {MenuComponent} from '../menu/menu.component';
   declarations: [],
   imports: [
     CommonModule,
-    MenuComponent
+    MainMenuComponent
   ]
 })
 export class ContactModule { }

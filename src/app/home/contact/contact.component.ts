@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import {MenuComponent} from "../menu/menu.component";
+import {MainMenuComponent} from "../main-menu/main-menu.component";
 
 @Component({
   selector: 'app-contact',
   standalone: true,
     imports: [
-        MenuComponent
+        MainMenuComponent
     ],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css'

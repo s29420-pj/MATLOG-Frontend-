@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import {MenuComponent} from '../../menu/menu.component';
+import {MainMenuComponent} from '../../main-menu/main-menu.component';
 
 @Component({
   selector: 'app-become-tutor',
   standalone: true,
-  imports: [MenuComponent],
+  imports: [MainMenuComponent],
   templateUrl: './become-tutor.component.html',
   styleUrl: './become-tutor.component.css'
 })
