@@ -3,11 +3,11 @@ import {MainMenuComponent} from "../main-menu/main-menu.component";
 
 @Component({
   selector: 'app-contact',
-  standalone: true,
-    imports: [
-        MainMenuComponent
-    ],
+  imports: [
+    MainMenuComponent
+  ],
   templateUrl: './contact.component.html',
+  standalone: true,
   styleUrl: './contact.component.css'
 })
 export class ContactComponent {

@@ -7,13 +7,14 @@ import {DashboardMenuComponent} from './user-dashboard/dashboard-menu/dashboard-
 
 @Component({
   selector: 'app-root',
-  standalone: true,
   imports: [RouterOutlet, MainMenuComponent, CommonModule, DashboardMenuComponent],
-  templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
+  standalone: true,
+  templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+  }
 
   ngOnInit(): void {
     initFlowbite();
@@ -29,6 +30,14 @@ export class AppComponent implements OnInit {
     return this.router.url.startsWith('/auth');
   }
 
+  logout() {
+    const confirmed = confirm('Czy na pewno chcesz się wylogować?');
 
+    if (confirmed) {
+      console.log('Użytkownik został wylogowany');
+      //dodac backend z wylogowaniem i usunieciem id / tokenu itd
 
+      this.router.navigate(['/']);
+    }
+  }
 }

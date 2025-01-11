@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { TutorService, Tutor } from '../../services/tutor.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import {HttpClientModule} from '@angular/common/http';
 
 @Component({
   selector: 'app-tutor-search',
-  standalone: true,
-  imports: [CommonModule, FormsModule], // Import HttpClientModule
+  imports: [CommonModule, FormsModule,HttpClientModule],
   templateUrl: './tutor-search.component.html',
-  styleUrls: ['./tutor-search.component.css'],
+  standalone: true,
+  styleUrls: ['./tutor-search.component.css']
 })
 export class TutorSearchComponent implements OnInit {
   tutors: Tutor[] = [];

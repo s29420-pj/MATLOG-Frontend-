@@ -4,12 +4,12 @@ import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-login',
-  standalone: true,
   imports: [
     ReactiveFormsModule,
     RouterLink
   ],
   templateUrl: "./login.component.html",
+  standalone: true,
   styleUrl: './login.component.css'
 })
 export class LoginComponent {

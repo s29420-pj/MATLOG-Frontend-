@@ -4,11 +4,11 @@ import {CommonModule} from '@angular/common';
 
 @Component({
   selector: 'app-offer',
-  standalone: true,
-    imports: [
-        CommonModule, MainMenuComponent
-    ],
+  imports: [
+    CommonModule, MainMenuComponent
+  ],
   templateUrl: './offer.component.html',
+  standalone: true,
   styleUrl: './offer.component.css'
 })
 export class OfferComponent {

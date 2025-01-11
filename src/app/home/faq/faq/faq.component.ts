@@ -12,10 +12,10 @@ interface FaqItem {
 @Component({
   selector: 'app-faq',
   templateUrl: './faq.component.html',
-  standalone: true,
   imports: [
     MainMenuComponent
   ],
+  standalone: true,
   styleUrls: ['./faq.component.css']
 })
 export class FaqComponent  implements AfterViewInit {

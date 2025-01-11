@@ -3,26 +3,26 @@ import {NgForOf} from "@angular/common";
 
 @Component({
   selector: 'app-dashboard-home',
-  standalone: true,
-    imports: [
-        NgForOf
-    ],
+  imports: [
+    NgForOf
+  ],
   templateUrl: './dashboard-home.component.html',
+  standalone: true,
   styleUrl: './dashboard-home.component.css'
 })
 export class DashboardHomeComponent {
   courses = [
     {
-      title: 'Learning Swift Applications',
-      author: '@dianneed',
+      title: 'Algebra',
+      author: '@JanKowalski',
       duration: '82 min',
-      image: 'https://via.placeholder.com/300x150',
+      image: '../../assets/algebra.avif',
     },
     {
-      title: 'Thematic Illustration Tips',
-      author: '@dianneed',
+      title: 'Trygonometria',
+      author: '@AnnaNowak',
       duration: '90 min',
-      image: 'https://via.placeholder.com/300x150',
+      image: '../../assets/trygonometria.jpg',
     },
   ];
 }
