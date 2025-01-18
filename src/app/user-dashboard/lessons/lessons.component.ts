@@ -2,14 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {DatePipe, NgForOf, NgIf} from '@angular/common';
 import {Router, RouterLink} from '@angular/router';
+import { Lesson } from '../../models/lesson.model'; // Import interfejsu
 
-interface Lesson {
-  id: string;
-  subject: string;
-  teacher: string;
-  date: string;
-  duration: number;
-}
 @Component({
   selector: 'app-lessons',
   imports: [

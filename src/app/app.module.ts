@@ -5,10 +5,13 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { routes } from './app.routes';
+import { LessonHistoryComponent } from './lesson-history/lesson-history.component';
 
 @NgModule({
   declarations: [
     // Główny komponent aplikacji
+  
+    LessonHistoryComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,26 @@
+<div class="lesson-history p-6 bg-gray-100 min-h-screen">
+  <h2 class="text-3xl font-bold text-indigo-600 mb-6">Historia Twoich Lekcji</h2>
+  <div class="overflow-x-auto">
+    <table class="min-w-full bg-white shadow-md rounded-lg">
+      <thead>
+      <tr class="bg-indigo-500 text-white">
+        <th class="py-3 px-6 text-left">Przedmiot</th>
+        <th class="py-3 px-6 text-left">Korepetytor</th>
+        <th class="py-3 px-6 text-left">Data</th>
+        <th class="py-3 px-6 text-left">Czas trwania</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr
+        *ngFor="let lesson of lessons"
+        class="border-b hover:bg-indigo-50"
+      >
+        <td class="py-3 px-6">{{ lesson.subject }}</td>
+        <td class="py-3 px-6">{{ lesson.teacher }}</td>
+        <td class="py-3 px-6">{{ lesson.date | date: 'short' }}</td>
+        <td class="py-3 px-6">{{ lesson.duration }} min</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
