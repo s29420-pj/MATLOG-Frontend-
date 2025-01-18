@@ -1,6 +1,6 @@
 // src/app/faq/faq.component.ts
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { initFlowbite } from 'flowbite';
+import { initFlowbite } from "flowbite";
 import {MainMenuComponent} from '../../main-menu/main-menu.component';
 
 interface FaqItem {

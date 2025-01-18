@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
+import {Router, RouterLink, RouterOutlet} from '@angular/router';
 import { initFlowbite } from 'flowbite';
 import { MainMenuComponent } from './home/main-menu/main-menu.component';
 import {CommonModule} from '@angular/common';
@@ -7,7 +7,7 @@ import {DashboardMenuComponent} from './user-dashboard/dashboard-menu/dashboard-
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MainMenuComponent, CommonModule, DashboardMenuComponent],
+  imports: [RouterOutlet, MainMenuComponent, CommonModule, DashboardMenuComponent, RouterLink],
   styleUrls: ['./app.component.css'],
   standalone: true,
   templateUrl: './app.component.html'

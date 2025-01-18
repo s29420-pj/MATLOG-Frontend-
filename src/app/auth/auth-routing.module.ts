@@ -4,7 +4,7 @@ import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 
 const routes: Routes = [
-  { path: 'logowanie', component: LoginComponent }, // Logowanie
+  { path: 'login', component: LoginComponent }, // Logowanie
   { path: 'rejestracja', component: RegisterComponent }, // Rejestracja
 ];
 

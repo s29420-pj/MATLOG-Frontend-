@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {DatePipe, NgForOf, NgIf} from '@angular/common';
-import { Router } from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
 
 interface Lesson {
   id: string;
@@ -16,7 +16,8 @@ interface Lesson {
     DatePipe,
     HttpClientModule,
     NgForOf,
-    NgIf
+    NgIf,
+    RouterLink
   ],
   templateUrl: "./lessons.component.html",
   standalone: true,

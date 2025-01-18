@@ -9,6 +9,7 @@ import {OfferComponent} from './offer/offer.component';
 import {FaqComponent} from './faq/faq/faq.component';
 import {RegisterComponent} from '../auth/register/register.component';
 import {FormsModule} from '@angular/forms';
+import {LoginComponent} from '../auth/login/login.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'oferta', component: OfferComponent},
   { path: 'faq', component: FaqComponent},
   { path: 'rejestracja', component: RegisterComponent},
+  { path: 'login', component: LoginComponent},
 
 ];
 
