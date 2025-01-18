@@ -1,0 +1,61 @@
+
+  <!-- Nagłówek -->
+  <div class="mb-8">
+    <h1 class="text-3xl font-bold text-indigo-800">Znajdź korepetytora</h1>
+    <p class="text-gray-600">Wyszukaj idealnego nauczyciela i zapisz się na lekcję.</p>
+  </div>
+
+  <!-- Filtry wyszukiwania -->
+  <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+    <form (ngSubmit)="onSearch()" class="flex flex-wrap gap-4">
+      <input
+        [(ngModel)]="filters.subject"
+        name="subject"
+        type="text"
+        placeholder="Przedmiot"
+        class="w-full sm:w-1/3 p-2 border border-gray-300 rounded-lg"
+      />
+      <input
+        [(ngModel)]="filters.city"
+        name="city"
+        type="text"
+        placeholder="Miasto"
+        class="w-full sm:w-1/3 p-2 border border-gray-300 rounded-lg"
+      />
+      <button
+        type="submit"
+        class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700"
+      >
+        Szukaj
+      </button>
+    </form>
+  </div>
+
+  <!-- Lista korepetytorów -->
+  <div *ngIf="tutors.length > 0; else noTutors" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div
+      *ngFor="let tutor of tutors"
+      class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition"
+    >
+      <img
+        ngSrc="tutor.photo"
+        alt="Zdjęcie korepetytora"
+        class="w-full h-40 object-cover rounded-lg mb-4"
+      />
+      <h2 class="text-lg font-bold text-gray-800">{{ tutor.name }}</h2>
+      <p class="text-gray-600">{{ tutor.subject }}</p>
+      <p class="text-sm text-gray-500">Miasto: {{ tutor.city }}</p>
+      <button
+        class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700"
+        (click)="enroll(tutor.id)"
+      >
+        Zapisz się na lekcję
+      </button>
+    </div>
+  </div>
+
+  <!-- Brak wyników -->
+  <ng-template #noTutors>
+    <p class="text-center text-gray-500">Nie znaleziono korepetytorów dla podanych kryteriów.</p>
+  </ng-template>
+

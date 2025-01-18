@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {DatePipe, NgForOf, NgIf} from '@angular/common';
+import { Router } from '@angular/router';
+
 interface Lesson {
   id: string;
   subject: string;
@@ -12,6 +14,7 @@ interface Lesson {
   selector: 'app-lessons',
   imports: [
     DatePipe,
+    HttpClientModule,
     NgForOf,
     NgIf
   ],
@@ -22,10 +25,34 @@ interface Lesson {
 export class LessonsComponent implements OnInit{
   lessons: Lesson[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {
-    this.fetchLessons();
+     this.fetchLessons();
+    // Przykładowe dane
+    // this.lessons = [
+    //   {
+    //     id: '1',
+    //     subject: 'Matematyka',
+    //     teacher: 'Jan Kowalski',
+    //     date: new Date().toISOString(),
+    //     duration: 60,
+    //   },
+    //   {
+    //     id: '2',
+    //     subject: 'Fizyka',
+    //     teacher: 'Anna Nowak',
+    //     date: new Date(new Date().getTime() + 3600000).toISOString(), // za godzinę
+    //     duration: 90,
+    //   },
+    //   {
+    //     id: '3',
+    //     subject: 'Chemia',
+    //     teacher: 'Katarzyna Wiśniewska',
+    //     date: new Date(new Date().getTime() + 7200000).toISOString(), // za dwie godziny
+    //     duration: 120,
+    //   },
+    //];
   }
 
   fetchLessons(): void {
@@ -43,6 +70,9 @@ export class LessonsComponent implements OnInit{
       },
       error: (err) => console.error('Błąd podczas anulowania lekcji:', err),
     });
+  }
+  goToFindLessons(): void {
+    this.router.navigate(['/dashboard/znajdz-lekcje']); // Dostosuj ścieżkę do odpowiedniego widoku
   }
 }
 

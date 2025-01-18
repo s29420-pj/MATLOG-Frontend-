@@ -1,4 +1,4 @@
-<div class="p-6 bg-gray-100 min-h-screen">
+
   <h2 class="text-2xl font-bold mb-6">Twój kalendarz</h2>
 
   <div *ngIf="lessons.length > 0; else noLessons">
@@ -23,5 +23,11 @@
 
   <ng-template #noLessons>
     <p class="text-gray-500 text-center">Nie masz jeszcze zapisanych lekcji.</p>
+    <button
+      class="bg-[#E3A008]  hover:bg-[#d39607] text-white  py-2 px-4 rounded-lg  transition duration-300 animate-pulse"
+      (click)="goToFindLessons()"
+    >
+      Zapisz się na lekcję
+    </button>
   </ng-template>
-</div>
+

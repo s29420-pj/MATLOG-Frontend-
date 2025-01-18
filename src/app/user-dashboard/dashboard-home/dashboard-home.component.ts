@@ -1,28 +1,32 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NgForOf} from "@angular/common";
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-dashboard-home',
   imports: [
-    NgForOf
+    NgForOf,
+    RouterLink
   ],
   templateUrl: './dashboard-home.component.html',
   standalone: true,
   styleUrl: './dashboard-home.component.css'
 })
-export class DashboardHomeComponent {
-  courses = [
-    {
-      title: 'Algebra',
-      author: '@JanKowalski',
-      duration: '82 min',
-      image: '../../assets/algebra.avif',
-    },
-    {
-      title: 'Trygonometria',
-      author: '@AnnaNowak',
-      duration: '90 min',
-      image: '../../assets/trygonometria.jpg',
-    },
-  ];
+export class DashboardHomeComponent implements OnInit{
+  userName: string = 'Jan Kowalski'; // Tymczasowe dane, można zastąpić danymi z backendu
+
+  constructor() {}
+
+  ngOnInit(): void {
+    // Jeśli chcesz dynamicznie załadować dane użytkownika, możesz to zrobić tutaj
+    this.loadUserData();
+  }
+
+  loadUserData(): void {
+    // Przykład: Załaduj dane użytkownika z backendu, jeśli są dostępne
+    // Możesz użyć serwisu HTTP, jeśli dane są dynamiczne
+    // this.userService.getUserData().subscribe(data => {
+    //   this.userName = data.name;
+    // });
+  }
 }

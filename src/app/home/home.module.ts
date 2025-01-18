@@ -8,7 +8,6 @@ import {BecomeTutorComponent} from './tutor/become-tutor/become-tutor.component'
 import {OfferComponent} from './offer/offer.component';
 import {FaqComponent} from './faq/faq/faq.component';
 import {RegisterComponent} from '../auth/register/register.component';
-import {TutorSearchComponent} from './tutor-search/tutor-search.component';
 import {FormsModule} from '@angular/forms';
 
 
@@ -19,7 +18,6 @@ const routes: Routes = [
   { path: 'oferta', component: OfferComponent},
   { path: 'faq', component: FaqComponent},
   { path: 'rejestracja', component: RegisterComponent},
-  { path: 'wyszukaj-korepetytora', component: TutorSearchComponent },
 
 ];
 
