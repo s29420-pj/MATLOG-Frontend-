@@ -11,9 +11,9 @@ const routes: Routes = [
     path: '',
     component: UserDashboardComponent,
     children: [
-      { path: '', component: DashboardHomeComponent }, // Domyślny widok dla /dashboard
-      { path: 'ustawienia', component: SettingsComponent }, // Dodatkowy widok dla /dashboard/settings
-    ],
+      { path: '', component: DashboardHomeComponent },
+      { path: 'ustawienia', component: SettingsComponent },
+      { path: 'lekcje', component: LessonsComponent }    ],
   },
 ];
 

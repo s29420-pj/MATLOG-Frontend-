@@ -4,13 +4,12 @@ import {DashboardMenuComponent} from './dashboard-menu/dashboard-menu.component'
 import {NgForOf} from '@angular/common';
 
 @Component({
-  selector: 'app-user-dashboard',
   imports: [
-    RouterOutlet, DashboardMenuComponent, NgForOf
-  ],
-  templateUrl: './user-dashboard.component.html',
+    RouterOutlet, DashboardMenuComponent],
+  selector: 'app-user-dashboard',
   standalone: true,
-  styleUrl: './user-dashboard.component.css'
+  styleUrl: './user-dashboard.component.css',
+  templateUrl: './user-dashboard.component.html'
 })
 export class UserDashboardComponent {
 
