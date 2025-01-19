@@ -1,21 +1,22 @@
 import {Component, OnInit} from '@angular/core';
 import {NgForOf} from "@angular/common";
 import {RouterLink} from '@angular/router';
+import {HttpClientModule} from '@angular/common/http';
 
 @Component({
   selector: 'app-dashboard-home',
   imports: [
-    NgForOf,
-    RouterLink
+    RouterLink,
+    HttpClientModule,
   ],
   templateUrl: './dashboard-home.component.html',
   standalone: true,
   styleUrl: './dashboard-home.component.css'
 })
 export class DashboardHomeComponent implements OnInit{
-  userName: string = 'Jan Kowalski'; // Tymczasowe dane, można zastąpić danymi z backendu
+  userName = 'Jan Kowalski'; // Tymczasowe dane, można zastąpić danymi z backendu
 
-  constructor() {}
+
 
   ngOnInit(): void {
     // Jeśli chcesz dynamicznie załadować dane użytkownika, możesz to zrobić tutaj

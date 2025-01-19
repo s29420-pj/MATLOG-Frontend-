@@ -4,10 +4,11 @@ import { initFlowbite } from 'flowbite';
 import { MainMenuComponent } from './home/main-menu/main-menu.component';
 import {CommonModule} from '@angular/common';
 import {DashboardMenuComponent} from './user-dashboard/dashboard-menu/dashboard-menu.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MainMenuComponent, CommonModule, DashboardMenuComponent, RouterLink],
+  imports: [RouterOutlet, MainMenuComponent, CommonModule, DashboardMenuComponent, RouterLink, HttpClientModule],
   styleUrls: ['./app.component.css'],
   standalone: true,
   templateUrl: './app.component.html'

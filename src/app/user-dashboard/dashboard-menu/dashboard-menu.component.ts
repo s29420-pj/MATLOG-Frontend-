@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import {RouterLink} from "@angular/router";
+import {HttpClientModule} from '@angular/common/http';
 
 @Component({
     selector: 'app-dashboard-menu',
     imports: [
-        RouterLink
+        RouterLink,
+      HttpClientModule,
     ],
     templateUrl: './dashboard-menu.component.html',
     standalone: true,

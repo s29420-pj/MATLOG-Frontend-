@@ -8,10 +8,10 @@ import { Lesson } from '../../models/lesson.model'; // Import interfejsu
   selector: 'app-lessons',
   imports: [
     DatePipe,
-    HttpClientModule,
     NgForOf,
     NgIf,
-    RouterLink
+    RouterLink,
+    HttpClientModule,
   ],
   templateUrl: "./lessons.component.html",
   standalone: true,

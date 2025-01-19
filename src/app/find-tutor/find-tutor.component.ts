@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {NgForOf, NgIf, NgOptimizedImage} from '@angular/common';
@@ -19,12 +19,12 @@ interface Tutor {
     FormsModule,
     NgIf,
     NgForOf,
-    NgOptimizedImage,
     HttpClientModule,
+    NgOptimizedImage,
   ],
   standalone: true
 })
-export class FindTutorComponent {
+export class FindTutorComponent implements OnInit {
   filters = {
     subject: '',
     city: '',

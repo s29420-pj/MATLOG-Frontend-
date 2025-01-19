@@ -3,7 +3,7 @@ import {MainMenuComponent} from '../../main-menu/main-menu.component';
 
 @Component({
   selector: 'app-become-tutor',
-  imports: [MainMenuComponent],
+  imports: [],
   templateUrl: './become-tutor.component.html',
   standalone: true,
   styleUrl: './become-tutor.component.css'

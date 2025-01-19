@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import {MainMenuComponent} from "../main-menu/main-menu.component";
+import {HttpClientModule} from '@angular/common/http';
 
 @Component({
   selector: 'app-contact',
   imports: [
-    MainMenuComponent
+    MainMenuComponent,
+    HttpClientModule
   ],
   templateUrl: './contact.component.html',
   standalone: true,

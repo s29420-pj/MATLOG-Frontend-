@@ -6,7 +6,7 @@ import {RouterLink} from '@angular/router';
 @Component({
   selector: 'app-offer',
   imports: [
-    CommonModule, MainMenuComponent, RouterLink
+    CommonModule, RouterLink
   ],
   templateUrl: './offer.component.html',
   standalone: true,
