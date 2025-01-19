@@ -9,9 +9,8 @@
   <!-- Lista korepetytorów -->
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
     <div *ngFor="let tutor of tutors" class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition">
-      <h2 class="text-lg font-bold text-gray-800">{{ tutor.name }}</h2>
-      <p class="text-gray-600">{{ tutor.subject }}</p>
-      <p class="text-sm text-gray-500">Miasto: {{ tutor.city }}</p>
+      <h2 class="text-lg font-bold text-gray-800">{{ tutor.firstName  + tutor.lastName }}</h2>
+      <p class="text-gray-600">{{ tutor.specializations }}</p>
       <button
         [class]="isLoggedIn
       ? 'bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600'
