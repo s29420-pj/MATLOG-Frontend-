@@ -1,6 +1,14 @@
-<div class="lesson-history p-6 bg-gray-100 min-h-screen">
+
   <h2 class="text-3xl font-bold text-indigo-600 mb-6">Historia Twoich Lekcji</h2>
-  <div class="overflow-x-auto">
+
+  <!-- Gdy lista lekcji jest pusta -->
+  <div *ngIf="lessons.length === 0" class="text-center text-gray-500 mt-10">
+    <p class="text-lg">Brak historii lekcji.</p>
+    <p class="text-sm">Nie odbyła się jeszcze żadna lekcja.</p>
+  </div>
+
+  <!-- Gdy są dostępne lekcje -->
+  <div *ngIf="lessons.length > 0" class="overflow-x-auto">
     <table class="min-w-full bg-white shadow-md rounded-lg">
       <thead>
       <tr class="bg-indigo-500 text-white">
@@ -23,4 +31,3 @@
       </tbody>
     </table>
   </div>
-</div>

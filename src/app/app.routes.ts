@@ -11,11 +11,11 @@ export const routes: Routes = [
   },
   {
     path: 'auth',
-    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule), // Lazy loading dla AuthModule
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
   },
   {
     path: 'znajdz-korepetytora',
-    loadComponent: () => import('./find-tutor/find-tutor.component').then(m => m.FindTutorComponent), // Dodana trasa dla funkcji Znajdź korepetytora
+    loadComponent: () => import('./find-tutor/find-tutor.component').then(m => m.FindTutorComponent),
   },
 
 ];

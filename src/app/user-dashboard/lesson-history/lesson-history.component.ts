@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { Lesson } from '../../models/lesson.model';
-import {DatePipe, NgForOf} from '@angular/common'; // Wspólny interfejs
+import {DatePipe, NgForOf, NgIf} from '@angular/common'; // Wspólny interfejs
 
 @Component({
   selector: 'app-lesson-history',
@@ -9,7 +9,9 @@ import {DatePipe, NgForOf} from '@angular/common'; // Wspólny interfejs
   styleUrls: ['./lesson-history.component.css'],
   imports: [
     NgForOf,
-    DatePipe
+    DatePipe,
+    HttpClientModule,
+    NgIf,
   ],
   standalone: true
 })
