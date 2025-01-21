@@ -1,1 +1,19 @@
-<p>user-profile works!</p>
+<div *ngIf="profileData" class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md mx-auto">
+  <h2 class="text-2xl font-bold mb-4 text-indigo-800 text-center">Profil korepetytora</h2>
+  <div class="border-b border-gray-300 pb-4 mb-4">
+    <p class="text-lg">
+      <strong class="text-indigo-600">Imię:</strong>
+      <span class="text-gray-800">{{ profileData.firstName }}</span>
+    </p>
+    <p class="text-lg">
+      <strong class="text-indigo-600">Nazwisko:</strong>
+      <span class="text-gray-800">{{ profileData.lastName }}</span>
+    </p>
+  </div>
+  <div>
+    <h3 class="text-xl font-semibold mb-2 text-gray-700">Specjalizacje:</h3>
+    <ul class="list-disc list-inside text-gray-600">
+      <li *ngFor="let specialization of profileData.specializations">{{ specialization.name }}</li>
+    </ul>
+  </div>
+</div>

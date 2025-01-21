@@ -8,17 +8,26 @@ export const routes: Routes = [
   {
     path: 'dashboard',
     loadChildren: () =>
-      import('./user-dashboard/user-dashboard.module').then((m) => m.UserDashboardModule),
+      import('./user-dashboard/user-dashboard.module').then((m) => m.UserDashboardModule), // Dashboard użytkownika
   },
   {
     path: 'auth',
     loadChildren: () =>
-      import('./auth/auth.module').then((m) => m.AuthModule),
+      import('./auth/auth.module').then((m) => m.AuthModule), // Moduł autoryzacji
   },
   {
     path: 'znajdz-korepetytora',
     loadComponent: () =>
-      import('./find-tutor/find-tutor.component').then((m) => m.FindTutorComponent), // Komponent wyszukiwania korepetytorów
+      import('./find-tutor/find-tutor.component').then((m) => m.FindTutorComponent), // Wyszukiwarka korepetytorów
+  },
+  {
+    path: 'user-profile',
+    loadComponent: () =>
+      import('./user-profile/user-profile.component').then((m) => m.UserProfileComponent), // Profil użytkownika
+  },
+  {
+    path: 'edit-profile',
+    loadComponent: () =>
+      import('./edit-profile/edit-profile.component').then((m) => m.EditProfileComponent), // Edycja profilu
   },
 ];
-

@@ -18,8 +18,8 @@ const routes: Routes = [
   { path: 'zostan-korepetytorem', component: BecomeTutorComponent},
   { path: 'oferta', component: OfferComponent},
   { path: 'faq', component: FaqComponent},
-  { path: 'rejestracja', component: RegisterComponent},
-  { path: 'login', component: LoginComponent},
+  { path: 'auth/rejestracja', component: RegisterComponent},
+  { path: 'auth/login', component: LoginComponent},
 
 ];
 

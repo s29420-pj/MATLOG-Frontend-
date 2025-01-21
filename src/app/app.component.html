@@ -10,7 +10,7 @@
 
       <!-- Główna zawartość -->
       <div class="flex-1 flex items-center justify-center p-6 relative z-0 h-screen">
-        <div class="bg-white w-full max-w-5xl h-[80vh] rounded-3xl p-8 shadow-2xl flex flex-col items-center justify-center">
+        <div class="bg-white w-full max-w-5xl h-[80vh] rounded-3xl p-8 shadow-2xl flex flex-col items-center justify-start overflow-y-auto">
           <router-outlet></router-outlet>
         </div>
       </div>
@@ -47,7 +47,7 @@
           </svg>
         </button>
 
-        <div class="bg-white w-full max-w-5xl h-[80vh] rounded-3xl p-8 shadow-2xl flex flex-col items-center justify-center">
+        <div class="bg-white w-full max-w-5xl h-[80vh] rounded-3xl p-8 shadow-2xl flex flex-col items-center justify-start overflow-y-auto">
           <router-outlet></router-outlet>
         </div>
       </div>
@@ -59,7 +59,7 @@
 <ng-template #authLayout>
   <!-- Layout dla auth (bez menu) -->
   <div class="h-screen bg-indigo-800 flex justify-center items-center">
-    <div class="bg-white rounded-3xl p-8 shadow-lg w-full max-w-lg h-[80vh] flex flex-col items-center justify-center">
+    <div class="bg-white rounded-3xl p-8 shadow-lg w-full max-w-lg h-[80vh] flex flex-col items-center justify-start overflow-y-auto">
       <router-outlet></router-outlet> <!-- Zawartość logowania/rejestracji -->
     </div>
   </div>

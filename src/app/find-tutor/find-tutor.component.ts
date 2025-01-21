@@ -3,6 +3,7 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {NgForOf, NgIf, NgOptimizedImage} from '@angular/common';
 import {map} from 'rxjs/operators';
+import {UserProfileComponent} from '../user-profile/user-profile.component';
 
 interface SchoolSubject {
   name: string;
@@ -25,6 +26,7 @@ interface Tutor {
     NgForOf,
     HttpClientModule,
     NgOptimizedImage,
+    UserProfileComponent,
   ],
   standalone: true
 })
@@ -36,6 +38,7 @@ export class FindTutorComponent implements OnInit {
 
   tutors: Tutor[] = [];
   isLoggedIn = true;
+  selectedTutorId: string | null = null;
 
   constructor(private http: HttpClient) {}
 
@@ -58,6 +61,8 @@ export class FindTutorComponent implements OnInit {
       .subscribe({
         next: (data) => {
           this.tutors = data;
+          console.log('Mapped tutors:', this.tutors); // Debugowanie
+
         },
         error: (err) => console.error(),
       });
@@ -74,5 +79,12 @@ export class FindTutorComponent implements OnInit {
     } else {
       alert('Musisz być zalogowany, aby zapisać się na lekcję.');
     }
+  }
+  openProfileModal(tutorId: string): void {
+    this.selectedTutorId = tutorId; // Otwiera modal z wybranym ID tutora
+  }
+
+  closeProfileModal(): void {
+    this.selectedTutorId = null; // Zamyka modal
   }
 }
