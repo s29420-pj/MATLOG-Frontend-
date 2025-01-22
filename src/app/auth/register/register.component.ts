@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { initFlowbite } from 'flowbite';
 import { JsonPipe } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { AxiosService } from '../../axios.service';
 
 @Component({
   selector: 'app-register',
@@ -22,7 +22,7 @@ export class RegisterComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private http: HttpClient,
+    private axiosService: AxiosService,
     private router: Router // Dodaj Router
   ) {}
 
@@ -48,25 +48,31 @@ export class RegisterComponent {
     formData.role = formData.role?.toUpperCase();
 
     if (formData.role === 'TUTOR') {
-      url = 'http://localhost:8080/tutor/user/controller/register';
+      url = '/tutor/user/controller/register';
     } else {
-      url = 'http://localhost:8080/student/user/controller/register';
+      url = '/student/user/controller/register';
     }
 
-    this.http.post(url, formData).subscribe({
-      next: (response: any) => {
-        alert('Rejestracja zakończona sukcesem!');
-
-        const userId = response.id;
+    this.axiosService.request(
+      "POST",
+      url,
+      {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        emailAddress: formData.emailAddress,
+        password: formData.password,
+        dateOfBirth: formData.dateOfBirth,
+        role: formData.role
+      }
+    ).then(
+      response => {
         if (formData.role === 'TUTOR') {
-          this.router.navigate(['/edit-profile', userId]); // Przekierowanie do edycji profilu
+          this.router.navigate(['/edit-profile', response.id]);
         } else {
           this.router.navigate(['/dashboard']);
         }
-      },
-      error: (err) => {
-        console.error('Registration failed ', err);
       }
-    });
+    )
   }
+
 }
