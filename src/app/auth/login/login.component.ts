@@ -39,6 +39,7 @@ export class LoginComponent {
     let url = '';
     const formData = this.loginForm.value;
     formData.role = formData.role?.toUpperCase();
+
     if (formData.role == 'TUTOR') {
       url = '/tutor/user/controller/login';
     } else {

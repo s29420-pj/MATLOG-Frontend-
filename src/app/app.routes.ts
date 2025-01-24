@@ -26,8 +26,9 @@ export const routes: Routes = [
       import('./user-profile/user-profile.component').then((m) => m.UserProfileComponent), // Profil użytkownika
   },
   {
-    path: 'edit-profile',
+    path: 'edit-profile/:id',
     loadComponent: () =>
-      import('./edit-profile/edit-profile.component').then((m) => m.EditProfileComponent), // Edycja profilu
+      import('./edit-profile/edit-profile.component').then((m) => m.EditProfileComponent),
   },
+
 ];

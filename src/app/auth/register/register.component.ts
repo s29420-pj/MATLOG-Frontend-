@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { initFlowbite } from 'flowbite';
 import { JsonPipe } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
-import { AxiosService } from '../../axios.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-register',
@@ -22,8 +22,8 @@ export class RegisterComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private axiosService: AxiosService,
-    private router: Router // Dodaj Router
+    private http: HttpClient, // Użycie HttpClient
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -48,31 +48,28 @@ export class RegisterComponent {
     formData.role = formData.role?.toUpperCase();
 
     if (formData.role === 'TUTOR') {
-      url = '/tutor/user/controller/register';
+      url = 'http://localhost:8080/tutor/user/controller/register';
     } else {
-      url = '/student/user/controller/register';
+      url = 'http://localhost:8080/student/user/controller/register';
     }
 
-    this.axiosService.request(
-      "POST",
-      url,
-      {
-        firstName: formData.firstName,
-        lastName: formData.lastName,
-        emailAddress: formData.emailAddress,
-        password: formData.password,
-        dateOfBirth: formData.dateOfBirth,
-        role: formData.role
-      }
-    ).then(
-      response => {
+    this.http.post(url, formData).subscribe({
+      next: (response: any) => {
+        // Zapisanie tokena do localStorage
+        const token = response.token;
+        localStorage.setItem('jwtToken', token);
+
+        alert('Rejestracja zakończona sukcesem!');
+        // Przekierowanie po rejestracji
         if (formData.role === 'TUTOR') {
           this.router.navigate(['/edit-profile', response.id]);
         } else {
           this.router.navigate(['/dashboard']);
         }
-      }
-    )
+      },
+      error: (err) => {
+        console.error('Rejestracja nie powiodła się:', err);
+      },
+    });
   }
-
 }

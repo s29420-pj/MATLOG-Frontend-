@@ -1,33 +1,40 @@
-import {Component, OnInit} from '@angular/core';
-import {NgForOf} from "@angular/common";
-import {RouterLink} from '@angular/router';
-import {HttpClientModule} from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import jwt_decode from 'jwt-decode';
+import {NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-dashboard-home',
-  imports: [
-    RouterLink,
-    HttpClientModule,
-  ],
   templateUrl: './dashboard-home.component.html',
+  styleUrls: ['./dashboard-home.component.css'],
   standalone: true,
-  styleUrl: './dashboard-home.component.css'
+  imports: [
+    NgIf,
+    HttpClientModule,
+  ]
 })
-export class DashboardHomeComponent implements OnInit{
+export class DashboardHomeComponent implements OnInit {
   userName = 'Jan Kowalski'; // Tymczasowe dane, można zastąpić danymi z backendu
+  userRole = '';
 
-
+  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    // Jeśli chcesz dynamicznie załadować dane użytkownika, możesz to zrobić tutaj
     this.loadUserData();
   }
 
   loadUserData(): void {
-    // Przykład: Załaduj dane użytkownika z backendu, jeśli są dostępne
-    // Możesz użyć serwisu HTTP, jeśli dane są dynamiczne
-    // this.userService.getUserData().subscribe(data => {
-    //   this.userName = data.name;
-    // });
+    // Pobierz token z localStorage lub innego miejsca
+    const token = localStorage.getItem('jwtToken');
+
+    if (token) {
+
+      // Dekoduj token JWT, aby uzyskać informacje o użytkowniku
+      const decodedToken: any = jwt_decode(token);
+      console.log(decodedToken); // Debugowanie zawartości tokena
+
+      this.userName = decodedToken.firstName + ' ' + decodedToken.lastName;
+      this.userRole = decodedToken.role;
+    }
   }
 }

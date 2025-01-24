@@ -1,4 +1,3 @@
-<!-- Główny kontener -->
 <div class="h-full flex flex-col items-center justify-center">
   <!-- Nagłówek -->
   <div class="mb-8 text-center">
@@ -6,33 +5,58 @@
     <p class="text-gray-600">Zarządzaj swoimi lekcjami i korzystaj z funkcji platformy.</p>
   </div>
 
-  <!-- Siatka z opcjami -->
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-5xl">
-    <!-- Znajdź korepetytora -->
-    <div class="bg-gradient-to-r from-blue-400 to-indigo-600 text-white p-6 rounded-lg shadow-lg hover:shadow-xl transition transform hover:scale-105 flex flex-col items-center text-center">
-      <h2 class="text-xl font-bold mb-4">Znajdź korepetytora</h2>
-      <p class="text-sm mb-4">Przeglądaj dostępnych nauczycieli i zapisz się na lekcję.</p>
-      <button class="bg-white text-indigo-600 font-semibold px-4 py-2 rounded-lg hover:bg-gray-200" routerLink="/znajdz-korepetytora">
-        Przeglądaj
-      </button>
-    </div>
+  <!-- Widok dla studenta -->
+  <ng-container *ngIf="userRole === 'STUDENT'">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-5xl">
+      <!-- Znajdź korepetytora -->
+      <div class="bg-gradient-to-r from-blue-400 to-indigo-600 text-white p-6 rounded-lg shadow-lg hover:shadow-xl transition transform hover:scale-105 flex flex-col items-center text-center">
+        <h2 class="text-xl font-bold mb-4">Znajdź korepetytora</h2>
+        <p class="text-sm mb-4">Przeglądaj dostępnych nauczycieli i zapisz się na lekcję.</p>
+        <button class="bg-white text-indigo-600 font-semibold px-4 py-2 rounded-lg hover:bg-gray-200" routerLink="/znajdz-korepetytora">
+          Przeglądaj
+        </button>
+      </div>
 
-    <!-- Historia lekcji -->
-    <div class="bg-gradient-to-r from-green-400 to-teal-500 text-white p-6 rounded-lg shadow-lg hover:shadow-xl transition transform hover:scale-105 flex flex-col items-center text-center">
-      <h2 class="text-xl font-bold mb-4">Historia lekcji</h2>
-      <p class="text-sm mb-4">Zobacz swoje zakończone lekcje.</p>
-      <button class="bg-white text-green-600 font-semibold px-4 py-2 rounded-lg hover:bg-gray-200" routerLink="/dashboard/historia">
-        Zobacz historię
-      </button>
-    </div>
+      <!-- Historia lekcji -->
+      <div class="bg-gradient-to-r from-green-400 to-teal-500 text-white p-6 rounded-lg shadow-lg hover:shadow-xl transition transform hover:scale-105 flex flex-col items-center text-center">
+        <h2 class="text-xl font-bold mb-4">Historia lekcji</h2>
+        <p class="text-sm mb-4">Zobacz swoje zakończone lekcje.</p>
+        <button class="bg-white text-green-600 font-semibold px-4 py-2 rounded-lg hover:bg-gray-200" routerLink="/dashboard/historia">
+          Zobacz historię
+        </button>
+      </div>
 
-    <!-- Oceny i Opinie -->
-    <div class="bg-gradient-to-r from-orange-400 to-red-500 text-white p-6 rounded-lg shadow-lg hover:shadow-xl transition transform hover:scale-105 flex flex-col items-center text-center">
-      <h2 class="text-xl font-bold mb-4">Oceny i Opinie</h2>
-      <p class="text-sm mb-4">Wystaw opinię za lekcje.</p>
-      <button class="bg-white text-orange-600 font-semibold px-4 py-2 rounded-lg hover:bg-gray-200" routerLink="/dashboard/opinie">
-        Przejdź do opinii
-      </button>
+      <!-- Oceny i Opinie -->
+      <div class="bg-gradient-to-r from-orange-400 to-red-500 text-white p-6 rounded-lg shadow-lg hover:shadow-xl transition transform hover:scale-105 flex flex-col items-center text-center">
+        <h2 class="text-xl font-bold mb-4">Oceny i Opinie</h2>
+        <p class="text-sm mb-4">Wystaw opinię za lekcje.</p>
+        <button class="bg-white text-orange-600 font-semibold px-4 py-2 rounded-lg hover:bg-gray-200" routerLink="/dashboard/opinie">
+          Przejdź do opinii
+        </button>
+      </div>
     </div>
-  </div>
+  </ng-container>
+
+  <!-- Widok dla tutora -->
+  <ng-container *ngIf="userRole === 'TUTOR'">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-5xl">
+      <!-- Utwórz wolny termin -->
+      <div class="bg-gradient-to-r from-purple-400 to-indigo-600 text-white p-6 rounded-lg shadow-lg hover:shadow-xl transition transform hover:scale-105 flex flex-col items-center text-center">
+        <h2 class="text-xl font-bold mb-4">Utwórz wolny termin na lekcję</h2>
+        <p class="text-sm mb-4">Dodaj dostępne terminy dla swoich uczniów.</p>
+        <button class="bg-white text-purple-600 font-semibold px-4 py-2 rounded-lg hover:bg-gray-200" routerLink="/dashboard/terminy">
+          Utwórz termin
+        </button>
+      </div>
+
+      <!-- Opinie -->
+      <div class="bg-gradient-to-r from-orange-400 to-red-500 text-white p-6 rounded-lg shadow-lg hover:shadow-xl transition transform hover:scale-105 flex flex-col items-center text-center">
+        <h2 class="text-xl font-bold mb-4">Zobacz swoje opinie</h2>
+        <p class="text-sm mb-4">Przeglądaj opinie swoich uczniów.</p>
+        <button class="bg-white text-orange-600 font-semibold px-4 py-2 rounded-lg hover:bg-gray-200" routerLink="/dashboard/opinie">
+          Zobacz opinie
+        </button>
+      </div>
+    </div>
+  </ng-container>
 </div>

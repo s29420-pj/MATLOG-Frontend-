@@ -30,6 +30,9 @@ export class AppComponent implements OnInit {
     console.log('Current URL:', this.router.url);
     return this.router.url.startsWith('/auth');
   }
+  isEditProfileRoute(): boolean {
+    return this.router.url.startsWith('/edit-profile');
+  }
 
   logout() {
     const confirmed = confirm('Czy na pewno chcesz się wylogować?');

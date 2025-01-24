@@ -24,6 +24,7 @@
     "angular": "^1.8.3",
     "axios": "^1.7.9",
     "flowbite": "^2.5.2",
+    "jwt-decode": "^3.1.2",
     "rxjs": "~7.8.0",
     "source-map": "^0.7.4",
     "source-map-js": "^1.2.1",
@@ -52,7 +53,7 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.16",
-    "typescript": "~5.5.2",
+    "typescript": "^5.7.3",
     "typescript-eslint": "8.18.0"
   }
 }

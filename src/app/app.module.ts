@@ -4,7 +4,6 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { routes } from './app.routes';
 import {HttpClientModule} from '@angular/common/http';
-import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 
 @NgModule({
@@ -15,7 +14,6 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     RouterModule.forRoot(routes),
     FormsModule,
     HttpClientModule,
-    EditProfileComponent,
   ],
   providers: [],
 })
