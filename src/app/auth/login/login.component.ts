@@ -1,59 +1,75 @@
 import { Component } from '@angular/core';
-import {ReactiveFormsModule} from '@angular/forms';
-import {RouterLink} from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import {JsonPipe} from '@angular/common';
-import { AxiosService } from '../../axios.service';
-import { HttpRequest, HttpHandler } from '@angular/common/http';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
+import { JsonPipe } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
   imports: [
     ReactiveFormsModule,
-    RouterLink,
-    JsonPipe
+    JsonPipe,
+    RouterLink
   ],
-  templateUrl: "./login.component.html",
+  templateUrl: './login.component.html',
   standalone: true,
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  loginForm: FormGroup;
-  isLoading: boolean = false;
-  errorMessage: string = '';
-  credentials = {emailAddress: '', password: ''};
+  title = 'MATLOG-frontend';
+  loginForm!: FormGroup;
 
   constructor(
-    private fb: FormBuilder,
-    private axiosService: AxiosService
-  ) {
-    this.loginForm = this.fb.group({
+    private formBuilder: FormBuilder,
+    private http: HttpClient,
+    private router: Router
+  ) {}
+
+  ngOnInit(): void {
+    this.loginForm = this.buildLoginForm();
+  }
+
+  buildLoginForm(): FormGroup {
+    return this.formBuilder.group({
       emailAddress: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      role: ''
+      role: ['', Validators.required],
     });
   }
 
-  onLogin(): void {
-    let url = '';
+  onSubmit(): void {
     const formData = this.loginForm.value;
-    formData.role = formData.role?.toUpperCase();
+    let url = '';
 
-    if (formData.role == 'TUTOR') {
-      url = '/tutor/user/controller/login';
+    // Ustawienie odpowiedniego endpointu na podstawie roli
+    formData.role = formData.role?.toUpperCase();
+    if (formData.role === 'TUTOR') {
+      url = 'http://localhost:8080/tutor/user/controller/login';
+    } else if (formData.role === 'STUDENT') {
+      url = 'http://localhost:8080/student/user/controller/login';
     } else {
-      url = '/student/user/controller/login';
+      alert('Nieprawidłowa rola. Wybierz STUDENT lub TUTOR.');
+      return;
     }
-    console.log(formData.emailAddress);
-    console.log(formData.role);
-    this.axiosService.request(
-      "POST",
-      url,
-      {
-        emailAddress: formData.emailAddress,
-        password: formData.password
-      }
-    );
+
+    this.http.post(url, formData).subscribe({
+      next: (response: any) => {
+        // Zapisanie tokena do localStorage
+        const token = response.token;
+        localStorage.setItem('jwtToken', token);
+
+        alert('Logowanie zakończone sukcesem!');
+        // Przekierowanie po logowaniu
+        if (formData.role === 'TUTOR') {
+          this.router.navigate(['/dashboard']);
+        } else {
+          this.router.navigate(['/dashboard']);
+        }
+      },
+      error: (err) => {
+        console.error('Logowanie nie powiodło się:', err);
+        alert('Nieprawidłowy email lub hasło.');
+      },
+    });
   }
 }

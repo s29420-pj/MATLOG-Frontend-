@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import jwt_decode from 'jwt-decode';
-import {NgIf} from '@angular/common';
+import { NgIf } from '@angular/common';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-dashboard-home',
@@ -11,11 +12,12 @@ import {NgIf} from '@angular/common';
   imports: [
     NgIf,
     HttpClientModule,
+    RouterLink,
   ]
 })
 export class DashboardHomeComponent implements OnInit {
-  userName = 'Jan Kowalski'; // Tymczasowe dane, można zastąpić danymi z backendu
-  userRole = '';
+  userName = ''; // Imię i nazwisko użytkownika
+  userRole = ''; // Główna rola użytkownika ('TUTOR' lub 'STUDENT')
 
   constructor(private http: HttpClient) {}
 
@@ -24,17 +26,22 @@ export class DashboardHomeComponent implements OnInit {
   }
 
   loadUserData(): void {
-    // Pobierz token z localStorage lub innego miejsca
-    const token = localStorage.getItem('jwtToken');
+    const token = localStorage.getItem('jwtToken'); // Pobranie tokena z localStorage
 
     if (token) {
-
-      // Dekoduj token JWT, aby uzyskać informacje o użytkowniku
       const decodedToken: any = jwt_decode(token);
-      console.log(decodedToken); // Debugowanie zawartości tokena
+      console.log('Decoded Token:', decodedToken);
 
-      this.userName = decodedToken.firstName + ' ' + decodedToken.lastName;
-      this.userRole = decodedToken.role;
+      this.userName = `${decodedToken.firstName} ${decodedToken.lastName}`; // Przypisanie imienia i nazwiska
+
+      // Sprawdzenie, czy w rolach jest 'TUTOR'
+      if (decodedToken.roles && decodedToken.roles.includes('TUTOR')) {
+        this.userRole = 'TUTOR';
+      } else {
+        this.userRole = 'STUDENT';
+      }
+    } else {
+      console.error('Token nie znaleziony w localStorage!');
     }
   }
 }
