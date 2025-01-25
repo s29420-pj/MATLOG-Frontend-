@@ -1,32 +1,29 @@
+<h2 class="text-2xl font-bold mb-6">Twój kalendarz</h2>
 
-  <h2 class="text-2xl font-bold mb-6">Twój kalendarz</h2>
-
-  <div *ngIf="lessons.length > 0; else noLessons">
-    <div class="grid grid-cols-1 gap-4">
-      <div *ngFor="let lesson of lessons" class="bg-white p-4 rounded-lg shadow-lg flex items-center">
-        <div class="w-16 h-16 bg-blue-500 text-white rounded-full flex items-center justify-center mr-4">
-          <span class="text-lg font-bold">{{ lesson.date | date: 'dd.MM' }}</span>
-        </div>
-        <div class="flex-grow">
-          <h3 class="text-lg font-semibold">{{ lesson.subject }}</h3>
-          <p class="text-sm text-gray-600">{{ lesson.teacher }}</p>
-          <p class="text-sm text-gray-500">
-            {{ lesson.date | date: 'dd.MM.yyyy HH:mm' }} - {{ lesson.duration }} min
-          </p>
-        </div>
-        <button class="ml-4 bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600" (click)="cancelLesson(lesson.id)">
-          Anuluj
-        </button>
+<div *ngIf="lessons.length > 0; else noLessons">
+  <div class="grid grid-cols-1 gap-4">
+    <div *ngFor="let lesson of lessons" class="bg-white p-4 rounded-lg shadow-lg flex items-center">
+      <div class="w-16 h-16 bg-blue-500 text-white rounded-full flex items-center justify-center mr-4">
+        <span class="text-lg font-bold">{{ lesson.startTime | date: 'dd.MM' }}</span>
       </div>
+      <div class="flex-grow">
+        <p class="text-sm text-gray-600">Czas: {{ lesson.startTime | date: 'dd.MM.yyyy HH:mm' }} - {{ lesson.endTime | date: 'HH:mm' }}</p>
+        <p class="text-sm text-gray-500">Cena: {{ lesson.price | currency:'PLN':'symbol' }}</p>
+      </div>
+      <button class="ml-4 bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600" (click)="cancelLesson(lesson.id)">
+        Anuluj
+      </button>
     </div>
   </div>
+</div>
 
-  <ng-template #noLessons>
-    <p class="text-gray-500 text-center">Nie masz jeszcze zapisanych lekcji.</p>
-    <button
-      class="bg-[#E3A008]  hover:bg-[#d39607] text-white  py-2 px-4 rounded-lg  transition duration-300 animate-pulse" routerLink="/znajdz-korepetytora"
-    >
-      Zapisz się na lekcję
-    </button>
-  </ng-template>
-
+<ng-template #noLessons>
+  <p class="text-gray-500 text-center">Nie masz jeszcze lekcji.</p>
+  <button
+    *ngIf="userRole === 'STUDENT'"
+    class="bg-[#E3A008] hover:bg-[#d39607] text-white py-2 px-4 rounded-lg transition duration-300 animate-pulse"
+    routerLink="/znajdz-korepetytora"
+  >
+    Zapisz się na lekcję
+  </button>
+</ng-template>

@@ -1,35 +1,63 @@
+<!-- Nagłówek -->
+<div class="mb-8">
+  <h1 class="text-3xl font-bold text-indigo-800">Znajdź korepetytora</h1>
+  <p class="text-gray-600">Wyszukaj idealnego nauczyciela i zapisz się na lekcję.</p>
+</div>
 
-  <!-- Nagłówek -->
-  <div class="mb-8">
-    <h1 class="text-3xl font-bold text-indigo-800">Znajdź korepetytora</h1>
-    <p class="text-gray-600">Wyszukaj idealnego nauczyciela i zapisz się na lekcję.</p>
-  </div>
-
-
-  <!-- Lista korepetytorów -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-    <div *ngFor="let tutor of tutors" class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition">
-      <h2 class="text-lg font-bold text-gray-800">{{ tutor.firstName  + tutor.lastName }}</h2>
-      <p class="text-gray-600">{{ tutor.specializations }}</p>
+<!-- Lista korepetytorów -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  <div *ngFor="let tutor of tutors" class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition">
+    <h2 class="text-lg font-bold text-gray-800">{{ tutor.firstName + ' ' + tutor.lastName }}</h2>
+    <p class="text-gray-600">Specjalizacje:
+      <span *ngFor="let subject of tutor.specializations; let isLast = last">
+        {{ subject.name }}<span *ngIf="!isLast">, </span>
+      </span>
+    </p>
+    <div class="mt-4 flex justify-end">
       <button
         class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
         (click)="openProfileModal(tutor.id)"
       >
         Zobacz profil
       </button>
-  </div>
-  </div>
-
-  <div *ngIf="selectedTutorId" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-    <div class="bg-white p-8 rounded-lg shadow-lg w-1/2">
-      <button
-        class="absolute top-4 right-4 text-red-500 hover:text-red-700"
-        (click)="closeProfileModal()"
-      >
-        X
-      </button>
-      <app-user-profile *ngIf="selectedTutorId" [tutorId]="selectedTutorId"></app-user-profile>
     </div>
   </div>
+</div>
+
+<!-- Modal profilu korepetytora -->
+<div *ngIf="selectedTutorId" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+  <div class="bg-white p-8 rounded-lg shadow-lg w-3/4 max-w-3xl relative">
+    <button
+      class="absolute top-4 right-4 text-red-500 hover:text-red-700"
+      (click)="closeProfileModal()"
+    >
+      X
+    </button>
 
 
+    <!-- Lista dostępnych terminów -->
+    <div *ngIf="availableLessons.length > 0" class="mt-6">
+      <h3 class="text-lg font-semibold text-gray-800">Dostępne terminy:</h3>
+      <ul class="mt-4 space-y-2">
+        <li *ngFor="let lesson of availableLessons" class="flex justify-between items-center border-b py-2">
+          <div>
+            <p class="text-gray-600">Czas rozpoczęcia: {{ lesson.startTime | date: 'short' }}</p>
+            <p class="text-gray-500">Czas Zakończenia: {{ lesson.endTime | date: 'short'}}</p>
+            <p class="text-gray-500">Cena: {{ lesson.price | currency: 'PLN' }}</p>
+          </div>
+          <button
+            class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600"
+            (click)="enrollLesson(lesson.id)"
+          >
+            Zarezerwuj
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Komunikat, gdy brak dostępnych terminów -->
+    <div *ngIf="availableLessons.length === 0" class="mt-6">
+      <p class="text-gray-500">Ten korepetytor nie ma obecnie dostępnych terminów.</p>
+    </div>
+  </div>
+</div>

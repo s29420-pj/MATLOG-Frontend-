@@ -7,6 +7,7 @@ import {LessonsComponent} from './lessons/lessons.component';
 import {DashboardHomeComponent} from './dashboard-home/dashboard-home.component';
 import {BecomeTutorComponent} from '../home/tutor/become-tutor/become-tutor.component';
 import {LessonHistoryComponent} from './lesson-history/lesson-history.component';
+import {DashboardReservationComponent} from './dashboard-reservation/dashboard-reservation.component';
 
 const routes: Routes = [
   {path: 'zostan-korepetytorem', component: BecomeTutorComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
       { path: 'ustawienia', component: SettingsComponent },
       { path: 'lekcje', component: LessonsComponent },
       { path: 'historia', component: LessonHistoryComponent },
+      { path: 'utworz-termin', component: DashboardReservationComponent },
 ]
 },
 ];
