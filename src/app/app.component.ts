@@ -39,7 +39,6 @@ export class AppComponent implements OnInit {
 
     if (confirmed) {
       console.log('Użytkownik został wylogowany');
-      //dodac backend z wylogowaniem i usunieciem id / tokenu itd
 
       this.router.navigate(['/']);
     }
